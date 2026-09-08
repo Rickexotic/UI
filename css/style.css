@@ -120,28 +120,11 @@ body{
         0 0 100px rgba(59,130,246,.18);
 }
 
-
 .icon-wrapper{
-
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(79,140,255,.18),
-            rgba(79,140,255,.05)
-        );
-
-    box-shadow:
-        0 0 30px rgba(79,140,255,.35),
-        0 0 80px rgba(79,140,255,.15);
+    background:transparent;
+    box-shadow:none;
+    width:auto;
+    height:auto;
 }
 
 .gear-icon{
