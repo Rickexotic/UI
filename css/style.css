@@ -46,14 +46,20 @@ body{
 
 .glass-card{
 
-    width:260px;
-    height:260px;
+    width:320px;
+    min-height:380px;
 
     border-radius:32px;
 
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
+    gap:20px;
+
+    padding:40px;
+
+    text-align:center;
 
     background:
         linear-gradient(
@@ -112,4 +118,19 @@ body{
         drop-shadow(0 0 8px rgba(79,140,255,.9))
         drop-shadow(0 0 16px rgba(79,140,255,.7))
         drop-shadow(0 0 32px rgba(79,140,255,.4));
+}
+.card-title{
+    font-size:28px;
+    font-weight:600;
+    color:#ffffff;
+    letter-spacing:-0.5px;
+}
+
+.card-description{
+    font-size:14px;
+    line-height:1.7;
+
+    max-width:240px;
+
+    color:rgba(255,255,255,.65);
 }
