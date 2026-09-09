@@ -113,6 +113,8 @@ body{
             var(--color-bg-primary),
             var(--color-bg-secondary)
         );
+
+    background-attachment: fixed;
 }
 
 .dashboard-grid{
