@@ -573,7 +573,7 @@ input:checked + .slider::before{
 .welcome-modal{
     position: relative;
     width: 100%;
-    max-width: 480px;
+    max-width: 540px;
     padding: 36px;
     border-radius: 32px;
 
@@ -722,7 +722,7 @@ input:checked + .slider::before{
     position:relative;
 
     width:100%;
-    max-width:420px;
+    max-width:540px;
 
     padding:28px;
 
@@ -916,4 +916,71 @@ input:checked + .slider::before{
 
         min-height:420px;
     }
+}
+
+/* ==========================
+   MOBILE PRICING CAROUSEL
+========================== */
+
+.pricing-carousel{
+
+    display:flex;
+
+    gap:16px;
+
+    overflow-x:auto;
+
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    padding:0 13%;
+
+    margin-top:24px;
+
+    scrollbar-width:none;
+}
+
+.pricing-carousel::-webkit-scrollbar{
+
+    display:none;
+}
+
+.pricing-card{
+
+    flex:0 0 74%;
+
+    scroll-snap-align:center;
+}
+
+.carousel-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:18px;
+}
+
+.dot{
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.20);
+}
+
+.dot.active{
+
+    width:20px;
+
+    border-radius:999px;
+
+    background:
+        var(--color-accent);
 }
