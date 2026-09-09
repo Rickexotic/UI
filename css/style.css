@@ -341,21 +341,23 @@ input:checked + .slider::before{
     }
 }
 
-@media (max-width:420px){
-
-    .glass-card{
-
-        min-height:150px;
+@media (max-width:560px){
+    :root {
+        --card-gap: 16px;
     }
 
-    .icon-wrapper{
-
-        width:64px;
-        height:64px;
+    .hero {
+        padding: 80px 16px 32px;
     }
 
-    .card-title{
-
-        font-size:14px;
+    .dashboard-grid {
+        max-width: 380px;
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* keep 2 columns */
+        gap: var(--card-gap);
     }
+
+    .glass-card {
+        min-height: 150px;
+    }
+}
 }
