@@ -164,12 +164,7 @@ body{
     width:140px;
     height:140px;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.10),
-            transparent 70%
-        );
+ 
 }
 
 .glass-card:hover{
