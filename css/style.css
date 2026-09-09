@@ -968,7 +968,7 @@ input:checked + .slider::before{
     height:8px;
 
     border-radius:50%;
-
+    transition:all .25s ease;
     background:rgba(255,255,255,.2);
 }
 
@@ -979,6 +979,7 @@ input:checked + .slider::before{
     width:20px;
 
     border-radius:999px;
+    box-shadow: 0 0 12px rgba(96,165,250,.35);
 }
 
 .pricing-card{
