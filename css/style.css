@@ -329,6 +329,20 @@ input:checked + .slider::before{
     border-radius: 14px;
 }
 
+.icon {
+
+     width:30px;
+    height:30px;
+    
+    color: var(--color-icon);
+
+    filter:
+        drop-shadow(
+            var(--shadow-icon)
+        );
+}
+
+
 .card-title {
     font-size: 13px;
     line-height: 1.2;
@@ -360,6 +374,19 @@ input:checked + .slider::before{
         border-radius: 12px;
     }
 
+.icon {
+
+     width:25px;
+    height:25px;
+    
+    color: var(--color-icon);
+
+    filter:
+        drop-shadow(
+            var(--shadow-icon)
+        );
+}
+    
     .card-title {
         font-size: 12px;
     }
@@ -396,6 +423,19 @@ input:checked + .slider::before{
         border-radius: 16px;
     }
 
+    .icon {
+
+     width:30px;
+    height:30px;
+    
+    color: var(--color-icon);
+
+    filter:
+        drop-shadow(
+            var(--shadow-icon)
+        );
+}
+
     .card-title {
         font-size: 14px;
     }
@@ -428,6 +468,19 @@ input:checked + .slider::before{
         height: 64px;
         border-radius: 18px;
     }
+
+    .icon {
+
+     width:35px;
+    height:35px;
+    
+    color: var(--color-icon);
+
+    filter:
+        drop-shadow(
+            var(--shadow-icon)
+        );
+}
 
     .card-title {
         font-size: 15px;
@@ -465,6 +518,19 @@ input:checked + .slider::before{
         height: 70px;
         border-radius: 20px;
     }
+
+    .icon {
+
+     width:40px;
+    height:40px;
+    
+    color: var(--color-icon);
+
+    filter:
+        drop-shadow(
+            var(--shadow-icon)
+        );
+}
 
     .card-title {
         font-size: 16px;
