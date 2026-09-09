@@ -990,3 +990,101 @@ input:checked + .slider::before{
 
     min-height:300px;
 }
+
+/* ==========================================
+   BOTTOM NAVIGATION
+========================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:95%;
+
+    max-width:520px;
+
+    height:54px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101827,
+            #172235
+        );
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    border-radius:14px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.45);
+
+    z-index:999;
+}
+
+.nav-item{
+
+    flex:1;
+
+    text-decoration:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+}
+
+.nav-icon svg{
+
+    width:18px;
+
+    height:18px;
+
+    color:var(--text-muted);
+
+    transition:.2s;
+}
+
+.nav-label{
+
+    font-size:10px;
+
+    color:var(--text-muted);
+
+    margin-top:2px;
+}
+
+.nav-item.active svg{
+
+    color:var(--primary);
+
+    filter:
+        drop-shadow(0 0 6px rgba(96,165,250,.55))
+        drop-shadow(0 0 12px rgba(96,165,250,.30));
+}
+
+.nav-item.active .nav-label{
+
+    color:var(--text-secondary);
+}
+
