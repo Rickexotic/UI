@@ -16,14 +16,13 @@
 
 
      <!-- Welcome -->
-    <div id="welcome-overlay" class="welcome-overlay">
+<div id="pricing-overlay" class="welcome-overlay">
 
-    <div class="welcome-modal">
+    <div class="pricing-modal">
 
         <button
             class="close-modal"
-            onclick="closeWelcome()">
-
+            onclick="closePricing()">
             ✕
         </button>
 
@@ -32,50 +31,117 @@
         </span>
 
         <h1 class="modal-title">
-            Welcome Back
+            Choose Your Plan
         </h1>
 
         <p class="modal-description">
-            Manage users, sites, permissions and organizational
-            structure from a unified workspace.
+            Manage users, sites, permissions and organizational structures
+            with the plan that best fits your business.
         </p>
 
-        <div class="stats-grid">
+        <div class="pricing-grid">
 
-            <div class="stat-card">
-                <span class="stat-value">124</span>
-                <span class="stat-label">Users</span>
+            <!-- STARTER -->
+
+            <div class="pricing-card">
+
+                <span class="plan-name">
+                    Starter
+                </span>
+
+                <div class="plan-price">
+                    $49
+                </div>
+
+                <span class="plan-period">
+                    per month
+                </span>
+
+                <ul class="plan-features">
+                    <li>Up to 50 users</li>
+                    <li>Up to 5 sites</li>
+                    <li>User Management</li>
+                    <li>Basic Reporting</li>
+                </ul>
+
+                <button class="plan-button">
+                    Get Started
+                </button>
+
             </div>
 
-            <div class="stat-card">
-                <span class="stat-value">14</span>
-                <span class="stat-label">Sites</span>
+            <!-- BUSINESS -->
+
+            <div class="pricing-card featured">
+
+                <div class="popular-badge">
+                    MOST POPULAR
+                </div>
+
+                <span class="plan-name">
+                    Business
+                </span>
+
+                <div class="plan-price">
+                    $99
+                </div>
+
+                <span class="plan-period">
+                    per month
+                </span>
+
+                <ul class="plan-features">
+                    <li>Up to 250 users</li>
+                    <li>Unlimited sites</li>
+                    <li>Workflow Management</li>
+                    <li>Organization Chart</li>
+                    <li>API Integration</li>
+                </ul>
+
+                <button class="plan-button featured-button">
+                    Get Started
+                </button>
+
             </div>
 
-            <div class="stat-card">
-                <span class="stat-value">8</span>
-                <span class="stat-label">Workflows</span>
-            </div>
+            <!-- PREMIUM -->
 
-            <div class="stat-card">
-                <span class="stat-value">97%</span>
-                <span class="stat-label">Compliance</span>
+            <div class="pricing-card">
+
+                <span class="plan-name">
+                    Premium
+                </span>
+
+                <div class="plan-price">
+                    $199
+                </div>
+
+                <span class="plan-period">
+                    per month
+                </span>
+
+                <ul class="plan-features">
+                    <li>Unlimited Users</li>
+                    <li>Unlimited Sites</li>
+                    <li>Advanced Analytics</li>
+                    <li>Single Sign-On</li>
+                    <li>Priority Support</li>
+                </ul>
+
+                <button class="plan-button">
+                    Get Started
+                </button>
+
             </div>
 
         </div>
-
-        <button
-            class="primary-action"
-            onclick="closeWelcome()">
-
-            Get Started
-
-        </button>
 
     </div>
 
 </div>
 
+
+    
     <!-- Config Panel -->
     <div class="hero">
 
@@ -195,12 +261,12 @@
   }
 
 
-function closeWelcome() {
-
+function closePricing() {
     document
-        .getElementById('welcome-overlay')
+        .getElementById('pricing-overlay')
         .style.display = 'none';
 }
+
 
 </script>
 
