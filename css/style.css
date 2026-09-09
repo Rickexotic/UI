@@ -536,31 +536,3 @@ input:checked + .slider::before{
         font-size: 16px;
     }
 }
-
-/* --- Minimal enhancement: fixed background + subtle blue bottom glow --- */
-body {
-  background-attachment: fixed;
-  position: relative;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  left: 50%;
-  bottom: -120px;
-  transform: translateX(-50%);
-  width: min(60vw, 760px);
-  height: min(30vw, 320px);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: -1;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(66, 153, 255, 0.22) 0%,
-    rgba(66, 153, 255, 0.10) 45%,
-    rgba(66, 153, 255, 0.00) 75%
-  );
-  filter: blur(14px);
-}
-
-}
