@@ -1063,7 +1063,7 @@ input:checked + .slider::before{
 
     height:18px;
 
-    color:var(grey);
+    color:#4b5766;
 
     transition:.2s;
 }
@@ -1072,7 +1072,7 @@ input:checked + .slider::before{
 
     font-size:10px;
 
-    color:var(grey);
+    color:#4b5766;
 
     margin-top:2px;
 }
