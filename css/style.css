@@ -131,7 +131,7 @@ body{
 
     grid-template-columns:
         repeat(2,minmax(0,1fr));
-
+    padding-bottom:50px;
     gap:clamp(16px,2.5vw,24px);
     align-items:stretch;
     justify-content:center;
@@ -326,6 +326,7 @@ input:checked + .slider::before{
     max-width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* always 2 columns on mobile */
     gap: var(--card-gap);
+    padding-bottom:50px;
 }
 
 .glass-card {
@@ -422,6 +423,7 @@ input:checked + .slider::before{
     .dashboard-grid {
         max-width: 560px;
         gap: var(--card-gap);
+        padding-bottom:50px;
     }
 
     .glass-card {
@@ -467,6 +469,7 @@ input:checked + .slider::before{
     .dashboard-grid {
         max-width: 760px;
         gap: var(--card-gap);
+          padding-bottom:50px;
     }
 
     .glass-card {
