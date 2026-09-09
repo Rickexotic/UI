@@ -284,6 +284,31 @@ function closePricing() {
         .getElementById('pricing-overlay')
         .style.display = 'none';
 }
+    const carousel =
+    document.getElementById("pricing-carousel");
+
+const dots =
+    document.querySelectorAll(".dot");
+
+carousel.addEventListener("scroll", () => {
+
+    const cardWidth =
+        carousel.querySelector(".pricing-card").offsetWidth + 16;
+
+    const current =
+        Math.round(carousel.scrollLeft / cardWidth);
+
+    dots.forEach(dot =>
+        dot.classList.remove("active")
+    );
+
+    if (dots[current]) {
+
+        dots[current].classList.add("active");
+
+    }
+
+});
 
 
 </script>
