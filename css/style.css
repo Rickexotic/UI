@@ -558,7 +558,7 @@ input:checked + .slider::before{
     inset:0;
 
     background:
-        rgba(0,0,0,.55);
+        rgba(0,0,0,.01);
 
     backdrop-filter:blur(6px);
 
