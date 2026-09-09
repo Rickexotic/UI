@@ -551,53 +551,47 @@ input:checked + .slider::before{
 
 /* Welcome */
 
+/* Welcome */
+
 .welcome-overlay{
+    position: fixed;
+    inset: 0;
 
-    position:fixed;
+    /* was rgba(0,0,0,.01) */
+    background: transparent;
 
-    inset:0;
+    /* was blur(6px) */
+    backdrop-filter: none;
 
-    background:
-        rgba(0,0,0,.01);
-
-    backdrop-filter:blur(6px);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:24px;
-
-    z-index:9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    z-index: 9999;
 }
+
 .welcome-modal{
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: 36px;
+    border-radius: 32px;
 
-    position:relative;
+    /* lighter so app background shows through clearly */
+    background: linear-gradient(
+        180deg,
+        rgba(16,24,40,.45),
+        rgba(11,18,32,.35)
+    );
 
-    width:100%;
-    max-width:480px;
+    /* optional: lower blur to keep more clarity behind */
+    backdrop-filter: blur(8px);
 
-    padding:36px;
-
-    border-radius:32px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(16,24,40,.85),
-            rgba(11,18,32,.75)
-        );
-
-    backdrop-filter:blur(16px);
-
-    border:
-        1px solid rgba(255,255,255,.04);
-
-    box-shadow:
-        0 24px 80px rgba(0,0,0,.45);
-
-    text-align:center;
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 24px 80px rgba(0,0,0,.30);
+    text-align: center;
 }
+
 .close-modal{
 
     position:absolute;
