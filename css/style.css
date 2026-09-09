@@ -298,66 +298,35 @@ input:checked + .slider::before{
     transform:translateX(28px);
 }
 
-@media (max-width:768px){
-
-    :root {
-        --card-height: 160px;
-        --card-gap: 18px;
-    }
-
-    .hero {
-        padding: 80px 24px 32px;
-    }
-
-    .dashboard-grid {
-        gap: var(--card-gap);
-    }
-
-    .icon-wrapper{
-
-        width:68px;
-        height:68px;
-    }
-}
-
 @media (max-width:560px){
-
     :root {
-        --card-gap: 16px;
+        --card-gap: 12px;
     }
 
     .hero {
-        padding: 80px 16px 32px;
+        padding: 72px 12px 24px;
     }
 
     .dashboard-grid {
-        max-width: 380px;
-        grid-template-columns: 1fr;
+        max-width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--card-gap);
     }
 
     .glass-card {
-        min-height: 150px;
-    }
-}
-
-@media (max-width:560px){
-    :root {
-        --card-gap: 16px;
+        min-height: 130px;
+        padding: 14px;
+        gap: 10px;
     }
 
-    .hero {
-        padding: 80px 16px 32px;
+    .icon-wrapper {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
     }
 
-    .dashboard-grid {
-        max-width: 380px;
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* keep 2 columns */
-        gap: var(--card-gap);
-    }
-
-    .glass-card {
-        min-height: 150px;
+    .card-title {
+        font-size: 13px;
     }
 }
 }
