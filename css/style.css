@@ -570,9 +570,9 @@ input:checked + .slider::before{
 
     overflow-y:auto;
 
-    padding-top:24px;
+    padding-top:32px;
 
-    padding-bottom:24px;
+    padding-bottom:5px;
 
     z-index:9999;
 }
