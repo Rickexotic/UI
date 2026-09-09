@@ -34,10 +34,10 @@
     --blur-card: 12px;
 
     --shadow-card:
-        0 12px 30px rgba(0,0,0,.28);
+        0 8px 20px rgba(0,0,0,.18);
 
     --shadow-icon:
-        0 0 10px rgba(96,165,250,.25);
+        0 0 8px rgba(96,165,250,.18);
 
     /* LAYOUT */
 
@@ -206,6 +206,9 @@ body{
 
 .icon {
 
+     width:50px;
+    height:50px;
+    
     color: var(--color-icon);
 
     filter:
