@@ -6,7 +6,7 @@
     --color-bg-secondary: #0F172A;
 
     --color-panel: rgba(16,24,40,.55);
-    --color-panel-border: rgba(255,255,255,.04);
+    --color-panel-border: rgba(138,180,255,.08);
 
     --color-title: #F8FAFC;
     --color-text: #94A3B8;
@@ -153,7 +153,7 @@ body{
 
     background: var(--color-panel);
 
-    border: 1px solid var(--color-panel-border);
+    border: 2px solid var(--color-panel-border);
 
     border-radius: var(--radius-card);
 
