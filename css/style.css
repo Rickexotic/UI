@@ -79,14 +79,20 @@ body{
 }
 
 .hero {
-
+    position: relative;
     min-height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
 
-    padding: 88px var(--grid-padding) 40px;
+.hero::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    
 
     background:
 
@@ -112,9 +118,7 @@ body{
             135deg,
             var(--color-bg-primary),
             var(--color-bg-secondary)
-        );
-
-    background-attachment: fixed;
+        );  
 }
 
 .dashboard-grid{
