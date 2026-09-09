@@ -43,6 +43,9 @@
 
     --card-height: 170px;
     --card-gap: 16px;
+    --grid-max-width: 760px;
+    --grid-padding: clamp(16px, 4vw, 32px);
+    --card-padding: clamp(20px, 3vw, 28px);
 }
 
 body.light-mode {
@@ -77,6 +80,14 @@ body{
 
 .hero {
 
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 88px var(--grid-padding) 40px;
+
     background:
 
         radial-gradient(
@@ -101,17 +112,32 @@ body{
 .dashboard-grid{
 
     width:100%;
-    max-width:500px;
+    max-width:var(--grid-max-width);
+    margin:0 auto;
 
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(2,minmax(0,1fr));
 
-    gap:16px;
+    gap:clamp(16px,2.5vw,24px);
+    align-items:stretch;
+    justify-content:center;
 }
 
 .glass-card {
+
+    position: relative;
+    overflow: hidden;
+
+    min-height: var(--card-height);
+    padding: var(--card-padding);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
 
     background: var(--color-panel);
 
@@ -122,6 +148,8 @@ body{
     backdrop-filter: blur(var(--blur-card));
 
     box-shadow: var(--shadow-card);
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .glass-card::before{
@@ -193,6 +221,7 @@ body{
     font-weight: var(--font-weight-title);
 
     color: var(--color-title);
+    line-height: 1.3;
 }
 
 .card-description {
@@ -267,6 +296,49 @@ input:checked + .slider{
 input:checked + .slider::before{
 
     transform:translateX(28px);
+}
+
+@media (max-width:768px){
+
+    :root {
+        --card-height: 160px;
+        --card-gap: 18px;
+    }
+
+    .hero {
+        padding: 80px 24px 32px;
+    }
+
+    .dashboard-grid {
+        gap: var(--card-gap);
+    }
+
+    .icon-wrapper{
+
+        width:68px;
+        height:68px;
+    }
+}
+
+@media (max-width:560px){
+
+    :root {
+        --card-gap: 16px;
+    }
+
+    .hero {
+        padding: 80px 16px 32px;
+    }
+
+    .dashboard-grid {
+        max-width: 380px;
+        grid-template-columns: 1fr;
+        gap: var(--card-gap);
+    }
+
+    .glass-card {
+        min-height: 150px;
+    }
 }
 
 @media (max-width:420px){
