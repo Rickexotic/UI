@@ -646,7 +646,7 @@ input:checked + .slider::before{
 .modal-description{
 
     margin-top:12px;
-
+    font-size:14px;
     color:var(--color-text);
 
     line-height:1.7;
