@@ -721,9 +721,10 @@ input:checked + .slider::before{
 .pricing-modal{
 
     position:relative;
-
-    width:100%;
-    max-width:520px;
+    width: min(920px, 92vw);
+    max-height: 90vh;
+    overflow: auto;
+  
     min-height:90vh;
     padding:28px;
 
