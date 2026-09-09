@@ -678,6 +678,15 @@ input:checked + .slider::before{
 
     font-weight:700;
 }
+.stat-label{
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
 .primary-action{
 
     margin-top:28px;
