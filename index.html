@@ -272,7 +272,7 @@ function closePricing() {
         .style.display = 'none';
 }
 
-       window.addEventListener("load", () => {
+ window.addEventListener("load", () => {
 
     const carousel =
         document.getElementById("pricing-carousel");
@@ -281,15 +281,11 @@ function closePricing() {
         carousel.children[1];
 
     businessCard.scrollIntoView({
-
         inline: "center",
-
         behavior: "auto"
-    }
-);
+    });  // ← Properly closed scrollIntoView()
 
-
-</script>
+});    // ← Properly closed addEventListener()
 
 
 </body>
