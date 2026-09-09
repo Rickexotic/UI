@@ -565,8 +565,9 @@ input:checked + .slider::before{
 
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 24px;
+    overflow-y:auto;
+    align-items: flex-start;
+    padding: 32px 16px;
     z-index: 9999;
 }
 
@@ -722,8 +723,8 @@ input:checked + .slider::before{
     position:relative;
 
     width:100%;
-    max-width:540px;
-
+    max-width:520px;
+    min-height:90vh;
     padding:28px;
 
     border-radius:32px;
@@ -759,7 +760,7 @@ input:checked + .slider::before{
 .pricing-card{
 
     position:relative;
-
+    min-height:auto;
     padding:22px;
 
     border-radius:22px;
@@ -848,15 +849,15 @@ input:checked + .slider::before{
 
 .plan-features{
 
-    margin-top:18px;
+    margin-top:12px;
 
     padding-left:18px;
 
     color:var(--color-text);
 
-    font-size:13px;
+    font-size:12px;
 
-    line-height:1.8;
+    line-height:1.5;
 }
 
 .plan-button{
