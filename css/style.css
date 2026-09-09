@@ -104,8 +104,8 @@ body{
 
         radial-gradient(
             circle at 60% 80%,
-            rgba(59,130,246,.25),
-            transparent 50%
+            rgba(59,130,246,.35),
+            transparent 30%
         ),
         
         linear-gradient(
