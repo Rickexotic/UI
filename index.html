@@ -39,8 +39,8 @@
             with the plan that best fits your business.
         </p>
 
-        <div class="pricing-grid">
-
+            <div id="pricing-carousel" class="pricing-carousel">
+          
             <!-- STARTER -->
 
             <div class="pricing-card">
@@ -134,6 +134,14 @@
 
             </div>
 
+</div>
+
+<div class="carousel-dots">
+    <span class="dot"></span>
+    <span class="dot active"></span>
+    <span class="dot"></span>
+</div>
+             
         </div>
 
     </div>
@@ -259,6 +267,21 @@
       }
     });
   }
+
+    window.addEventListener("load", () => {
+
+    const carousel =
+        document.getElementById("pricing-carousel");
+
+    const businessCard =
+        carousel.children[1];
+
+    businessCard.scrollIntoView({
+        behavior: "smooth",
+        inline: "center"
+    });
+
+});
 
 
 function closePricing() {
