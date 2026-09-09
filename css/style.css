@@ -298,35 +298,179 @@ input:checked + .slider::before{
     transform:translateX(28px);
 }
 
-@media (max-width:560px){
+/* =========================================================
+   MOBILE-FIRST RESPONSIVE SECTION (replace old media queries)
+   ========================================================= */
+
+/* 1) Base (phones first: 320px and up) */
+:root {
+    --card-height: 128px;
+    --card-gap: 12px;
+}
+
+.hero {
+    padding: 72px 12px 24px;
+}
+
+.dashboard-grid {
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* always 2 columns on mobile */
+    gap: var(--card-gap);
+}
+
+.glass-card {
+    min-height: var(--card-height);
+    padding: 14px;
+    gap: 10px;
+    border-radius: 18px;
+}
+
+.icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+}
+
+.card-title {
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.card-description {
+    font-size: 12px;
+}
+
+/* 2) Extra-small phones */
+@media (max-width: 360px) {
     :root {
-        --card-gap: 12px;
+        --card-height: 118px;
+        --card-gap: 10px;
     }
 
     .hero {
-        padding: 72px 12px 24px;
+        padding: 68px 10px 20px;
+    }
+
+    .glass-card {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .icon-wrapper {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+    }
+
+    .card-title {
+        font-size: 12px;
+    }
+
+    .card-description {
+        font-size: 11px;
+    }
+}
+
+/* 3) Large phones / small tablets */
+@media (min-width: 561px) {
+    :root {
+        --card-height: 148px;
+        --card-gap: 14px;
+    }
+
+    .hero {
+        padding: 80px 16px 28px;
     }
 
     .dashboard-grid {
-        max-width: 100%;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 560px;
         gap: var(--card-gap);
     }
 
     .glass-card {
-        min-height: 130px;
-        padding: 14px;
-        gap: 10px;
+        padding: 16px;
+        gap: 12px;
     }
 
     .icon-wrapper {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
     }
 
     .card-title {
+        font-size: 14px;
+    }
+}
+
+/* 4) Tablets and up */
+@media (min-width: 768px) {
+    :root {
+        --card-height: 160px;
+        --card-gap: 16px;
+    }
+
+    .hero {
+        padding: 88px 20px 36px;
+    }
+
+    .dashboard-grid {
+        max-width: 760px;
+        gap: var(--card-gap);
+    }
+
+    .glass-card {
+        padding: 20px;
+        gap: 14px;
+        border-radius: 22px;
+    }
+
+    .icon-wrapper {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+    }
+
+    .card-title {
+        font-size: 15px;
+    }
+
+    .card-description {
         font-size: 13px;
     }
 }
+
+/* 5) Desktops */
+@media (min-width: 1024px) {
+    :root {
+        --card-height: 170px;
+        --card-gap: 18px;
+    }
+
+    .hero {
+        padding: 96px 24px 40px;
+    }
+
+    .dashboard-grid {
+        max-width: 860px;
+        gap: var(--card-gap);
+    }
+
+    .glass-card {
+        padding: 22px;
+        gap: 16px;
+        border-radius: 24px;
+    }
+
+    .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+}
+
 }
