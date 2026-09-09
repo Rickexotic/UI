@@ -13,18 +13,7 @@
 
 <body>
 
-    <div class="theme-toggle">
-
-        <label class="switch">
-
-            <input type="checkbox" id="theme-switch">
-
-            <span class="slider"></span>
-
-        </label>
-
-    </div>
-
+  
     <div class="hero">
 
         <div class="dashboard-grid">
@@ -41,7 +30,7 @@
                 <h2 class="card-title">Settings</h2>
             </div>
 
-            <div class="glass-card">
+           <div class="glass-card" id="theme-toggle" role="button" tabindex="0" aria-label="Toggle theme">
                 <div class="icon-wrapper">
                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
                       <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
@@ -116,18 +105,32 @@
 
     </div>
 
-    <script>
+   <script>
+  const themeCard = document.getElementById('theme-toggle');
 
-        const switcher =
-            document.getElementById('theme-switch');
+  // load saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light-mode');
+  }
 
-        switcher.addEventListener('change', () => {
+  function toggleTheme() {
+    const isLight = document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
 
-            document.body.classList.toggle('light-mode');
+  if (themeCard) {
+    themeCard.addEventListener('click', toggleTheme);
 
-        });
-
-    </script>
+    // keyboard support
+    themeCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+  }
+</script>
 
 </body>
 
