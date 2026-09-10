@@ -381,16 +381,18 @@ body {
 
 .welcome-modal {
     position: relative;
-    min-height: 100vh;
+    min-height: auto;
+    max-height: calc(100vh - 32px);
     width: 100%;
     max-width: 480px;
-    padding: 5px;
+    padding: 14px 12px;
     border-radius: 32px;
-    background: linear-gradient(180deg, rgba(16, 24, 40, 0.45), rgba(11, 18, 32, 0.35));
+    background: linear-gradient(180deg, rgba(16, 24, 40, 0.55), rgba(11, 18, 32, 0.45));
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.10);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.30);
     text-align: center;
+    overflow: hidden;
 }
 
 .close-modal {
