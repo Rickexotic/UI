@@ -365,6 +365,10 @@ body {
 }
 
 /* Welcome */
+#pricing-overlay {
+    display: none;
+}
+
 .welcome-overlay {
     position: fixed;
     inset: 0;
