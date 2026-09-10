@@ -351,29 +351,6 @@
       }
     });
   }
-<script>
-  const themeCard = document.getElementById('theme-toggle');
-
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    document.body.classList.add('light-mode');
-  }
-
-  function toggleTheme() {
-    const isLight = document.body.classList.toggle('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  }
-
-  if (themeCard) {
-    themeCard.addEventListener('click', toggleTheme);
-
-    themeCard.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleTheme();
-      }
-    });
-  }
 
 window.addEventListener("load", () => {
   const pricingOverlay = document.getElementById("pricing-overlay");
