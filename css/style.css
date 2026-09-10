@@ -789,8 +789,7 @@ body {
     color:var(--color-icon);
 }
 
-    /* pricing carousel: layout-only fix (no color/theme changes) */
-#pricing-carousel.pricing-carousel {
+  #pricing-carousel.pricing-carousel {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -803,13 +802,7 @@ body {
 }
 
 #pricing-carousel.pricing-carousel > .pricing-card {
-  flex: 0 0 calc(100% - 24px); /* one card per view on mobile */
+  flex: 0 0 calc(100% - 24px);
   min-width: 260px;
   scroll-snap-align: center;
-}
-
-@media (min-width: 768px) {
-  #pricing-carousel.pricing-carousel > .pricing-card {
-    flex: 0 0 300px;
-  }
 }
