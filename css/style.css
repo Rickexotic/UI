@@ -788,3 +788,28 @@ body {
 
     color:var(--color-icon);
 }
+
+    /* pricing carousel: layout-only fix (no color/theme changes) */
+#pricing-carousel.pricing-carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+#pricing-carousel.pricing-carousel > .pricing-card {
+  flex: 0 0 calc(100% - 24px); /* one card per view on mobile */
+  min-width: 260px;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  #pricing-carousel.pricing-carousel > .pricing-card {
+    flex: 0 0 300px;
+  }
+}
