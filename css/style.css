@@ -480,6 +480,39 @@ body {
 }
 
 /* Pricing modal */
+#pricing-overlay.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 12px;
+}
+
+#pricing-overlay.welcome-overlay.show {
+    opacity: 1;
+}
+
+.pricing-modal {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    min-height: auto;
+    max-height: calc(100vh - 24px);
+    overflow: hidden;
+    padding: 14px 12px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(16, 24, 40, 0.45), rgba(11, 18, 32, 0.35));
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.30);
+    text-align: center;
+}
+
 .pricing-modal {
     position: relative;
     width: calc(100vw - 24px);
@@ -579,9 +612,54 @@ body {
 }
 
 @media (min-width: 768px) {
+    
     .pricing-modal {
         max-width: 920px;
     }
+ 
+    .close-modal {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+        margin-top: 6px;
+    }
+
+    .modal-description {
+        font-size: 12px;
+        margin-top: 6px;
+        line-height: 1.35;
+    }
+
+    .pricing-carousel {
+        margin-top: 12px;
+        padding: 0;
+    }
+
+    .carousel-dots {
+        margin-top: 10px;
+    }
+
+    .pricing-card {
+        width: 88%;
+        max-width: 340px;
+        padding: 14px;
+    }
+
+    .plan-price {
+        font-size: 26px;
+    }
+
+    .plan-features {
+        margin-top: 8px;
+        font-size: 11px;
+    }
+
 
     .pricing-grid {
         display: grid;
@@ -593,8 +671,8 @@ body {
         min-height: 300px;
         flex: initial;
         scroll-snap-align: unset;
-    }
-}
+    
+}}
 
 /* Carousel */
 .pricing-carousel {
