@@ -788,56 +788,85 @@ body {
     color:var(--color-icon);
 }
 
-/* Pricing carousel: horizontal only, no theme changes */
-#pricing-overlay #pricing-carousel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc(100% - 24px);
-  gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 8px 6px 14px;
-  max-width: 100%;
+/* ===== Pricing modal cleanup (layout-only polish) ===== */
+
+/* 1) Stronger separation from settings page behind */
+#pricing-overlay.welcome-overlay {
+  background: rgba(3, 8, 20, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
 }
 
-#pricing-overlay #pricing-carousel > .pricing-card {
-  width: auto;
-  min-width: 0;
-  max-width: none;
-  scroll-snap-align: center;
+/* keep modal fully inside viewport */
+#pricing-overlay .pricing-modal {
+  width: min(920px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
+  padding: 18px 14px 16px;
 }
 
-@media (min-width: 768px) {
-  #pricing-overlay #pricing-carousel {
-    grid-auto-columns: 300px;
-  }
-}
-
-
-/* === LOCKED horizontal pricing carousel (surgical) === */
+/* 2) Horizontal carousel with proper card spacing */
 #pricing-overlay .pricing-modal #pricing-carousel {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  gap: 16px !important;
+  gap: 14px !important;
+  padding: 8px 8px 14px !important;
+  margin: 0 !important;
+
   overflow-x: auto !important;
   overflow-y: hidden !important;
   scroll-snap-type: x mandatory !important;
   -webkit-overflow-scrolling: touch !important;
-  align-items: stretch !important;
+  overscroll-behavior-x: contain;
 }
 
+/* each card is a full "slide" with breathing room */
 #pricing-overlay .pricing-modal #pricing-carousel > .pricing-card {
-  flex: 0 0 85% !important;      /* show one centered card on mobile */
-  max-width: 340px !important;
-  min-width: 260px !important;
+  flex: 0 0 calc(100% - 18px) !important;
+  min-width: calc(100% - 18px) !important;
+  max-width: calc(100% - 18px) !important;
+  margin: 0 !important;
   scroll-snap-align: center !important;
 }
 
 @media (min-width: 768px) {
   #pricing-overlay .pricing-modal #pricing-carousel > .pricing-card {
-    flex: 0 0 300px !important;
+    flex: 0 0 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
   }
+}
+
+/* 3) Hide horizontal scrollbar track everywhere */
+#pricing-overlay .pricing-modal #pricing-carousel::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+#pricing-overlay .pricing-modal #pricing-carousel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* 4) Dots clearly visible */
+#pricing-overlay .carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+#pricing-overlay .carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.55);
+  transition: transform .2s ease, background .2s ease, opacity .2s ease;
+  opacity: .9;
+}
+#pricing-overlay .carousel-dots .dot.active {
+  background: var(--color-accent);
+  transform: scale(1.18);
+  opacity: 1;
 }
