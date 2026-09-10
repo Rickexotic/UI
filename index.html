@@ -304,7 +304,7 @@
     carousel.style.scrollSnapType = "x mandatory";
     carousel.style.webkitOverflowScrolling = "touch";
     carousel.style.gap = isMobile ? "10px" : "16px";
-    carousel.style.padding = isMobile ? "6px 2px 10px" : "8px 8px 14px";
+    carousel.style.padding = isMobile ? "8px 10% 12px" : "8px 8px 14px";
 
     if (isMobile) {
       modal.style.width = "calc(100vw - 20px)";
@@ -313,10 +313,11 @@
     }
 
     cards.forEach((card) => {
-      if (isMobile) {
-        card.style.flex = "0 0 100%";
-        card.style.minWidth = "100%";
-        card.style.maxWidth = "100%";
+     if (isMobile) {
+  card.style.flex = "0 0 80%";
+  card.style.minWidth = "80%";
+  card.style.maxWidth = "80%";
+}
       } else {
         card.style.flex = "0 0 300px";
         card.style.minWidth = "300px";
