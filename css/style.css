@@ -788,85 +788,94 @@ body {
     color:var(--color-icon);
 }
 
-/* ===== Pricing modal cleanup (layout-only polish) ===== */
+/* ===== FINAL pricing modal + carousel fix (no palette changes) ===== */
 
-/* 1) Stronger separation from settings page behind */
+/* Backdrop separation from dashboard */
 #pricing-overlay.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;               /* keep your JS show/hide behavior */
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
   background: rgba(3, 8, 20, 0.72);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   z-index: 9999;
 }
 
-/* keep modal fully inside viewport */
-#pricing-overlay .pricing-modal {
-  width: min(920px, calc(100vw - 24px));
-  max-height: calc(100vh - 24px);
-  overflow: hidden;
-  padding: 18px 14px 16px;
+#pricing-overlay.welcome-overlay.show {
+  display: flex;
 }
 
-/* 2) Horizontal carousel with proper card spacing */
-#pricing-overlay .pricing-modal #pricing-carousel {
+/* Modal sizing: fit mobile viewport */
+#pricing-overlay .pricing-modal {
+  width: min(920px, calc(100vw - 28px));
+  max-height: calc(100vh - 28px);
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 16px 12px 14px;
+}
+
+/* Carousel: one clean horizontal row */
+#pricing-overlay #pricing-carousel {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  gap: 14px !important;
-  padding: 8px 8px 14px !important;
-  margin: 0 !important;
-
+  align-items: stretch !important;
+  gap: 12px !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
   scroll-snap-type: x mandatory !important;
-  -webkit-overflow-scrolling: touch !important;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+  padding: 6px 4px 12px !important;
+  margin: 0 !important;
+  max-width: 100%;
 }
 
-/* each card is a full "slide" with breathing room */
-#pricing-overlay .pricing-modal #pricing-carousel > .pricing-card {
-  flex: 0 0 calc(100% - 18px) !important;
-  min-width: calc(100% - 18px) !important;
-  max-width: calc(100% - 18px) !important;
+/* Key: card width follows visible modal width (prevents clipping) */
+#pricing-overlay #pricing-carousel > .pricing-card {
+  flex: 0 0 calc(100% - 8px) !important;
+  min-width: calc(100% - 8px) !important;
+  max-width: calc(100% - 8px) !important;
   margin: 0 !important;
   scroll-snap-align: center !important;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
-  #pricing-overlay .pricing-modal #pricing-carousel > .pricing-card {
-    flex: 0 0 320px !important;
-    min-width: 320px !important;
-    max-width: 320px !important;
+  #pricing-overlay #pricing-carousel > .pricing-card {
+    flex: 0 0 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
   }
 }
 
-/* 3) Hide horizontal scrollbar track everywhere */
-#pricing-overlay .pricing-modal #pricing-carousel::-webkit-scrollbar {
+/* Hide scrollbar */
+#pricing-overlay #pricing-carousel::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-#pricing-overlay .pricing-modal #pricing-carousel {
+#pricing-overlay #pricing-carousel {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-/* 4) Dots clearly visible */
+/* Dots visibility */
 #pricing-overlay .carousel-dots {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 #pricing-overlay .carousel-dots .dot {
   width: 8px;
   height: 8px;
-  border-radius: 999px;
+  border-radius: 50%;
   background: rgba(148, 163, 184, 0.55);
-  transition: transform .2s ease, background .2s ease, opacity .2s ease;
-  opacity: .9;
 }
 #pricing-overlay .carousel-dots .dot.active {
   background: var(--color-accent);
-  transform: scale(1.18);
-  opacity: 1;
+  transform: scale(1.15);
 }
