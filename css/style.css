@@ -880,49 +880,73 @@ body {
   transform: scale(1.15);
 }
 
-    /* ===== MOBILE FIX ONLY (keep desktop as-is) ===== */
 @media (max-width: 767px) {
-  #pricing-overlay {
-    padding: 10px !important;
+  /* overlay separation */
+  #pricing-overlay.welcome-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    padding: 12px !important;
+    background: rgba(3, 8, 20, 0.78) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    z-index: 9999 !important;
   }
 
   #pricing-overlay .pricing-modal {
-    width: calc(100vw - 20px) !important;
-    max-width: calc(100vw - 20px) !important;
-    padding: 14px 10px 12px !important;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: calc(100dvh - 24px) !important;
     overflow: hidden !important;
+    padding: 14px 10px 14px !important;
   }
 
   #pricing-overlay #pricing-carousel {
     display: flex !important;
-    flex-direction: row !important;
     flex-wrap: nowrap !important;
     gap: 10px !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
-    padding: 6px 2px 10px !important;
-    margin: 0 !important;
     scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
+    padding: 6px 2px 8px !important;
+    margin-bottom: 8px !important;
+
+    /* hide scrollbar */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  #pricing-overlay #pricing-carousel::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   #pricing-overlay #pricing-carousel > .pricing-card {
     flex: 0 0 100% !important;
     min-width: 100% !important;
     max-width: 100% !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
     scroll-snap-align: center !important;
   }
 
-  #pricing-overlay #pricing-carousel::-webkit-scrollbar {
-    display: none !important;
-  }
-  #pricing-overlay #pricing-carousel {
-    scrollbar-width: none !important;
+  /* force dots visible on mobile */
+  #pricing-overlay .carousel-dots {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 6px !important;
+    position: relative !important;
+    z-index: 3 !important;
   }
 
-  #pricing-overlay .carousel-dots {
-    margin-top: 8px !important;
+  #pricing-overlay .carousel-dots .dot {
+    display: block !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: rgba(148,163,184,.6) !important;
+  }
+
+  #pricing-overlay .carousel-dots .dot.active {
+    background: var(--color-accent) !important;
   }
 }
