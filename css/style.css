@@ -272,12 +272,12 @@ body.light-mode .close-modal {
 }
 
 /* =========================
-   FIXED CAROUSEL (important)
+   Carousel
 ========================= */
 .pricing-carousel {
   display: flex;
-  flex-direction: row;   /* keep cards horizontal */
-  flex-wrap: nowrap;     /* prevent vertical stacking */
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 16px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -286,6 +286,7 @@ body.light-mode .close-modal {
   padding: 8px 6px 14px;
   margin: 0;
   list-style: none;
+  max-width: 100%;
 }
 
 .pricing-carousel::-webkit-scrollbar {
