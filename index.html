@@ -340,6 +340,61 @@ document.addEventListener("DOMContentLoaded", () => {
   c.style.overflowX = "auto";
   c.style.overflowY = "hidden";
 });
+
+ (function () {
+  const applyMobilePricingFix = () => {
+    const overlay = document.getElementById("pricing-overlay");
+    const modal = overlay?.querySelector(".pricing-modal");
+    const carousel = document.getElementById("pricing-carousel");
+    if (!overlay || !modal || !carousel) return;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    // always horizontal
+    carousel.style.display = "flex";
+    carousel.style.flexDirection = "row";
+    carousel.style.flexWrap = "nowrap";
+    carousel.style.overflowX = "auto";
+    carousel.style.overflowY = "hidden";
+    carousel.style.scrollSnapType = "x mandatory";
+    carousel.style.webkitOverflowScrolling = "touch";
+    carousel.style.gap = isMobile ? "10px" : "16px";
+    carousel.style.padding = isMobile ? "6px 2px 10px" : "8px 8px 14px";
+
+    // mobile sizing lock
+    if (isMobile) {
+      modal.style.width = "calc(100vw - 20px)";
+      modal.style.maxWidth = "calc(100vw - 20px)";
+      modal.style.overflow = "hidden";
+    }
+
+    const cards = carousel.querySelectorAll(".pricing-card");
+    cards.forEach((card) => {
+      if (isMobile) {
+        card.style.flex = "0 0 100%";
+        card.style.minWidth = "100%";
+        card.style.maxWidth = "100%";
+      } else {
+        card.style.flex = "0 0 300px";
+        card.style.minWidth = "300px";
+        card.style.maxWidth = "300px";
+      }
+      card.style.boxSizing = "border-box";
+      card.style.scrollSnapAlign = "center";
+      card.style.margin = "0";
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", applyMobilePricingFix);
+  window.addEventListener("resize", applyMobilePricingFix);
+
+  // re-apply when modal is opened
+  const openFn = window.openPricing;
+  window.openPricing = function () {
+    if (typeof openFn === "function") openFn();
+    setTimeout(applyMobilePricingFix, 0);
+  };
+})();
  
 </script>
    
