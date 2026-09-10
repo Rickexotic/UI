@@ -281,13 +281,13 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
-  gap: 12px;
+  gap: 10px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
-  padding: 8px 2px 12px;
+ padding: 8px 10% 12px;
   margin-top: 14px;
   scrollbar-width: none;      /* Firefox */
   -ms-overflow-style: none;   /* old Edge/IE */
