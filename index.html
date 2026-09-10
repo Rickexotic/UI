@@ -351,57 +351,74 @@
       }
     });
   }
+<script>
+  const themeCard = document.getElementById('theme-toggle');
 
-    window.addEventListener("load", () => {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light-mode');
+  }
 
-    const carousel =
-        document.getElementById("pricing-carousel");
+  function toggleTheme() {
+    const isLight = document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
 
-    const businessCard =
-        carousel.children[1];
+  if (themeCard) {
+    themeCard.addEventListener('click', toggleTheme);
 
-    businessCard.scrollIntoView({
-        behavior: "smooth",
-        inline: "center"
+    themeCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
     });
+  }
 
-});
+  window.addEventListener("load", () => {
+    const pricingOverlay = document.getElementById("pricing-overlay");
+    const carousel = document.getElementById("pricing-carousel");
+    const businessCard = carousel?.children?.[1];
 
+  setTimeout(() => {
+  if (pricingOverlay) {
+    pricingOverlay.style.display = "flex";
+    requestAnimationFrame(() => {
+      pricingOverlay.classList.add("show");
+    });
+  }
 
-function closePricing() {
-    document
-        .getElementById('pricing-overlay')
-        .style.display = 'none';
-}
-    const carousel =
-    document.getElementById("pricing-carousel");
+  if (businessCard) {
+    businessCard.scrollIntoView({
+      behavior: "smooth",
+      inline: "center"
+    });
+  }
+}, 2000);
+   
+  });
 
-const dots =
-    document.querySelectorAll(".dot");
+  function closePricing() {
+    document.getElementById('pricing-overlay').style.display = 'none';
+  }
 
-carousel.addEventListener("scroll", () => {
+  const carousel = document.getElementById("pricing-carousel");
+  const dots = document.querySelectorAll(".dot");
 
-    const cardWidth =
-        carousel.querySelector(".pricing-card").offsetWidth + 16;
+  carousel.addEventListener("scroll", () => {
+    const cardWidth = carousel.querySelector(".pricing-card").offsetWidth + 16;
+    const current = Math.round(carousel.scrollLeft / cardWidth);
 
-    const current =
-        Math.round(carousel.scrollLeft / cardWidth);
-
-    dots.forEach(dot =>
-        dot.classList.remove("active")
-    );
+    dots.forEach(dot => dot.classList.remove("active"));
 
     if (dots[current]) {
-
-        dots[current].classList.add("active");
-
+      dots[current].classList.add("active");
     }
+  });
 
-});
-
-
+    
 </script>
-
+  
 
 </body>
 
