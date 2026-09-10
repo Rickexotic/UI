@@ -109,14 +109,14 @@ body{
         ),
 
         radial-gradient(
-            circle at 80% 90%,
-            rgba(59,130,246,.25),
+            circle at 80% 80%,
+            rgba(59,130,246,.22),
             transparent 30%
         ),
 
          radial-gradient(
-            circle at 10% 95%,
-              rgba(124,58,237,.22),
+            circle at 10% 98%,
+              rgba(124,58,237,.20),
             transparent 30%
         ),
         
