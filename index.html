@@ -15,132 +15,65 @@
 <body>
 
 
-     <!-- Welcome -->
+<!-- Welcome -->
 <div id="pricing-overlay" class="welcome-overlay">
+  <div class="pricing-modal">
+    <button class="close-modal" onclick="closePricing()">✕</button>
 
-    <div class="pricing-modal">
+    <h1 class="modal-title">Choose Your Plan</h1>
 
-        <button
-            class="close-modal"
-            onclick="closePricing()">
-            ✕
-        </button>
+    <p class="modal-description">
+      Manage users, sites, permissions and organizational structures
+      with the plan that best fits your business.
+    </p>
 
-      <!--     <span class="modal-badge">
-            ADMIN HUB
-        </span>  -->
+    <div id="pricing-carousel" class="pricing-carousel">
+      <!-- STARTER -->
+      <div class="pricing-card">
+        <span class="plan-name">Starter</span>
+        <div class="plan-price">$49</div>
+        <span class="plan-period">per month</span>
+        <ul class="plan-features">
+          <li>Up to 50 users</li>
+          <li>Up to 5 sites</li>
+          <li>Basic Reporting</li>
+        </ul>
+        <button class="plan-button">Get Started</button>
+      </div>
 
-        <h1 class="modal-title">
-            Choose Your Plan
-        </h1>
+      <!-- BUSINESS -->
+      <div class="pricing-card featured">
+        <span class="plan-name">Business</span>
+        <div class="plan-price">$99</div>
+        <span class="plan-period">per month</span>
+        <ul class="plan-features">
+          <li>Up to 250 users</li>
+          <li>Unlimited sites</li>
+          <li>API Integration</li>
+        </ul>
+        <button class="plan-button featured-button">Get Started</button>
+      </div>
 
-        <p class="modal-description">
-            Manage users, sites, permissions and organizational structures
-            with the plan that best fits your business.
-        </p>
-
-            <div id="pricing-carousel" class="pricing-carousel">
-          
-            <!-- STARTER -->
-
-            <div class="pricing-card">
-
-                <span class="plan-name">
-                    Starter
-                </span>
-
-                <div class="plan-price">
-                    $49
-                </div>
-
-                <span class="plan-period">
-                    per month
-                </span>
-
-                <ul class="plan-features">
-                    <li>Up to 50 users</li>
-                    <li>Up to 5 sites</li>
-                    <li>Basic Reporting</li>
-                </ul>
-
-                <button class="plan-button">
-                    Get Started
-                </button>
-
-            </div>
-
-            <!-- BUSINESS -->
-
-            <div class="pricing-card featured">
-
-                  <!--  <div class="popular-badge">
-                    MOST POPULAR
-                </div>     -->
-
-                <span class="plan-name">
-                    Business
-                </span>
-
-                <div class="plan-price">
-                    $99
-                </div>
-
-                <span class="plan-period">
-                    per month
-                </span>
-
-                <ul class="plan-features">
-                    <li>Up to 250 users</li>
-                    <li>Unlimited sites</li>
-                    <li>API Integration</li>
-                </ul>
-
-                <button class="plan-button featured-button">
-                    Get Started
-                </button>
-
-            </div>
-
-            <!-- PREMIUM -->
-
-            <div class="pricing-card">
-
-                <span class="plan-name">
-                    Premium
-                </span>
-
-                <div class="plan-price">
-                    $199
-                </div>
-
-                <span class="plan-period">
-                    per month
-                </span>
-
-                <ul class="plan-features">
-                    <li>Unlimited Users</li>
-                    <li>Unlimited Sites</li>
-                    <li>Advanced Analytics</li>
-                  </ul>
-
-                <button class="plan-button">
-                    Get Started
-                </button>
-
-            </div>
-
-</div>
-
-<div class="carousel-dots">
-    <span class="dot"></span>
-    <span class="dot active"></span>
-    <span class="dot"></span>
-</div>
-             
-        </div>
-
+      <!-- PREMIUM -->
+      <div class="pricing-card">
+        <span class="plan-name">Premium</span>
+        <div class="plan-price">$199</div>
+        <span class="plan-period">per month</span>
+        <ul class="plan-features">
+          <li>Unlimited Users</li>
+          <li>Unlimited Sites</li>
+          <li>Advanced Analytics</li>
+        </ul>
+        <button class="plan-button">Get Started</button>
+      </div>
     </div>
 
+    <div class="carousel-dots">
+      <span class="dot"></span>
+      <span class="dot active"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
 </div>
 
 
