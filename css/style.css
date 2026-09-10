@@ -588,6 +588,7 @@ input:checked + .slider::before{
 
 .welcome-modal{
     position: relative;
+    min-height: 100vh;
     width: 100%;
     max-width: 480px;
     padding: 5px;
@@ -742,7 +743,7 @@ input:checked + .slider::before{
 
     max-width:none;
 
-    max-height:90vh;
+     min-height: 100vh;
 
     overflow-y:auto;
 
@@ -1008,7 +1009,7 @@ input:checked + .slider::before{
 
     position:fixed;
 
-    bottom:0;
+    bottom:3;
 
     left:50%;
 
