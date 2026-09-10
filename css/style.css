@@ -950,3 +950,63 @@ body {
     background: var(--color-accent) !important;
   }
 }
+
+    /* ===== MOBILE PATCH: overlay + hide scrollbar + show dots ===== */
+@media (max-width: 767px) {
+  /* Strong overlay separation */
+  #pricing-overlay.welcome-overlay,
+  #pricing-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(2, 8, 23, 0.82) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 99999 !important;
+  }
+
+  /* Keep modal above overlay and leave room for dots */
+  #pricing-overlay .pricing-modal {
+    position: relative !important;
+    z-index: 2 !important;
+    overflow: visible !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* Hide scrollbar/indicator */
+  #pricing-overlay #pricing-carousel {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  #pricing-overlay #pricing-carousel::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    background: transparent !important;
+  }
+
+  /* Force dots visible */
+  #pricing-overlay .carousel-dots {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+    position: relative !important;
+    z-index: 5 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  #pricing-overlay .carousel-dots .dot {
+    display: inline-block !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: rgba(148,163,184,.55) !important;
+  }
+
+  #pricing-overlay .carousel-dots .dot.active {
+    background: #60A5FA !important;
+    transform: scale(1.15) !important;
+  }
+}
