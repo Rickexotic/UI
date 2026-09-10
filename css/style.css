@@ -696,7 +696,7 @@ body {
 
     font-size:10px;
 
-    color:var(--text-muted);
+    color:var(color-icon-muted);
 
     margin-top:2px;
 }
@@ -712,5 +712,5 @@ body {
 
 .nav-item.active .nav-label{
 
-    color:var(--text-secondary);
+    color:var(color-icon);
 }
