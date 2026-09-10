@@ -620,3 +620,46 @@ body {
     border-radius: 999px;
     box-shadow: 0 0 12px rgba(96, 165, 250, 0.35);
 }
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:95%;
+
+    max-width:520px;
+
+    height:54px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101827,
+            #172235
+        );
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    border-radius:14px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.45);
+
+    z-index:999;
+}
+
