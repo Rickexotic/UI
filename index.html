@@ -259,98 +259,43 @@
 </nav>
 
 <script>
-  const themeCard = document.getElementById('theme-toggle');
+  const themeCard = document.getElementById("theme-toggle");
 
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    document.body.classList.add('light-mode');
-  }
+  const saved = localStorage.getItem("theme");
+  if (saved === "light") document.body.classList.add("light-mode");
 
   function toggleTheme() {
-    const isLight = document.body.classList.toggle('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    const isLight = document.body.classList.toggle("light-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
   if (themeCard) {
-    themeCard.addEventListener('click', toggleTheme);
-
-    themeCard.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+    themeCard.addEventListener("click", toggleTheme);
+    themeCard.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         toggleTheme();
       }
     });
   }
 
-  window.addEventListener("load", () => {
-    const pricingOverlay = document.getElementById("pricing-overlay");
-    const carousel = document.getElementById("pricing-carousel");
-    const businessCard = carousel?.children?.[1];
-
-    setTimeout(() => {
-      if (pricingOverlay) {
-        pricingOverlay.style.display = "flex";
-        requestAnimationFrame(() => {
-          pricingOverlay.classList.add("show");
-        });
-      }
-
-      if (businessCard) {
-        businessCard.scrollIntoView({
-          behavior: "smooth",
-          inline: "center"
-        });
-      }
-    }, 2000);
-  });
-
   function closePricing() {
     const overlay = document.getElementById("pricing-overlay");
-    if (overlay) {
-      overlay.classList.remove("show");
-      overlay.style.display = "none";
-    }
+    if (!overlay) return;
+    overlay.classList.remove("show");
+    overlay.style.display = "none";
   }
+  window.closePricing = closePricing;
 
-  const carousel = document.getElementById("pricing-carousel");
-  const dots = document.querySelectorAll(".dot");
-
-  if (carousel) {
-    carousel.addEventListener("scroll", () => {
-      const card = carousel.querySelector(".pricing-card");
-      if (!card) return;
-
-      const cardWidth = card.offsetWidth + 16;
-      const current = Math.round(carousel.scrollLeft / cardWidth);
-
-      dots.forEach(dot => dot.classList.remove("active"));
-
-      if (dots[current]) {
-        dots[current].classList.add("active");
-      }
-    });
-  }
-document.addEventListener("DOMContentLoaded", () => {
-  const c = document.getElementById("pricing-carousel");
-  if (!c) return;
-
-  c.style.display = "flex";
-  c.style.flexDirection = "row";
-  c.style.flexWrap = "nowrap";
-  c.style.overflowX = "auto";
-  c.style.overflowY = "hidden";
-});
-
- (function () {
-  const applyMobilePricingFix = () => {
+  function applyPricingLayout() {
     const overlay = document.getElementById("pricing-overlay");
     const modal = overlay?.querySelector(".pricing-modal");
     const carousel = document.getElementById("pricing-carousel");
     if (!overlay || !modal || !carousel) return;
 
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const cards = carousel.querySelectorAll(".pricing-card");
 
-    // always horizontal
     carousel.style.display = "flex";
     carousel.style.flexDirection = "row";
     carousel.style.flexWrap = "nowrap";
@@ -361,14 +306,12 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.style.gap = isMobile ? "10px" : "16px";
     carousel.style.padding = isMobile ? "6px 2px 10px" : "8px 8px 14px";
 
-    // mobile sizing lock
     if (isMobile) {
       modal.style.width = "calc(100vw - 20px)";
       modal.style.maxWidth = "calc(100vw - 20px)";
       modal.style.overflow = "hidden";
     }
 
-    const cards = carousel.querySelectorAll(".pricing-card");
     cards.forEach((card) => {
       if (isMobile) {
         card.style.flex = "0 0 100%";
@@ -383,21 +326,51 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.scrollSnapAlign = "center";
       card.style.margin = "0";
     });
-  };
+  }
 
-  document.addEventListener("DOMContentLoaded", applyMobilePricingFix);
-  window.addEventListener("resize", applyMobilePricingFix);
+  function centerBusinessCard() {
+    const carousel = document.getElementById("pricing-carousel");
+    if (!carousel) return;
+    const businessCard = carousel.querySelector(".pricing-card.featured") || carousel.children[1];
+    if (!businessCard) return;
 
-  // re-apply when modal is opened
-  const openFn = window.openPricing;
-  window.openPricing = function () {
-    if (typeof openFn === "function") openFn();
-    setTimeout(applyMobilePricingFix, 0);
-  };
-})();
- 
-</script>
-   
+    const left =
+      businessCard.offsetLeft - (carousel.clientWidth - businessCard.clientWidth) / 2;
+    carousel.scrollTo({ left, behavior: "smooth" });
+  }
+
+  function bindDots() {
+    const carousel = document.getElementById("pricing-carousel");
+    const dots = document.querySelectorAll(".dot");
+    if (!carousel || !dots.length) return;
+
+    carousel.addEventListener("scroll", () => {
+      const firstCard = carousel.querySelector(".pricing-card");
+      if (!firstCard) return;
+      const step = firstCard.getBoundingClientRect().width + parseFloat(getComputedStyle(carousel).columnGap || getComputedStyle(carousel).gap || 0);
+      const current = Math.round(carousel.scrollLeft / (step || 1));
+      dots.forEach((d) => d.classList.remove("active"));
+      if (dots[current]) dots[current].classList.add("active");
+    }, { passive: true });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    applyPricingLayout();
+    bindDots();
+
+    setTimeout(() => {
+      const pricingOverlay = document.getElementById("pricing-overlay");
+      if (pricingOverlay) {
+        pricingOverlay.style.display = "flex";
+        requestAnimationFrame(() => pricingOverlay.classList.add("show"));
+      }
+      applyPricingLayout();
+      centerBusinessCard();
+    }, 2000);
+  });
+
+  window.addEventListener("resize", applyPricingLayout);
+</script>   
 
 </body>
 
