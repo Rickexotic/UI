@@ -816,3 +816,29 @@ body {
 }
 
 }
+
+/* === LOCKED horizontal pricing carousel (surgical) === */
+#pricing-overlay .pricing-modal #pricing-carousel {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  -webkit-overflow-scrolling: touch !important;
+  align-items: stretch !important;
+}
+
+#pricing-overlay .pricing-modal #pricing-carousel > .pricing-card {
+  flex: 0 0 85% !important;      /* show one centered card on mobile */
+  max-width: 340px !important;
+  min-width: 260px !important;
+  scroll-snap-align: center !important;
+}
+
+@media (min-width: 768px) {
+  #pricing-overlay .pricing-modal #pricing-carousel > .pricing-card {
+    flex: 0 0 300px !important;
+  }
+}
