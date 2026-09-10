@@ -789,20 +789,37 @@ body {
     color:var(--color-icon);
 }
 
-  #pricing-carousel.pricing-carousel {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  gap: 16px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  max-width: 100%;
+/* FINAL pricing horizontal fix — layout only */
+#welcome-overlay,
+#pricing-overlay {
+  overflow: hidden;
 }
 
-#pricing-carousel.pricing-carousel > .pricing-card {
-  flex: 0 0 calc(100% - 24px);
-  min-width: 260px;
-  scroll-snap-align: center;
+#pricing-overlay .pricing-modal #pricing-carousel.pricing-carousel {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  gap: 16px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  -webkit-overflow-scrolling: touch;
+  white-space: normal !important;
+  max-width: 100% !important;
+}
+
+#pricing-overlay .pricing-modal #pricing-carousel.pricing-carousel > .pricing-card {
+  display: block !important;
+  flex: 0 0 calc(100% - 24px) !important;
+  min-width: 260px !important;
+  max-width: 360px !important;
+  scroll-snap-align: center !important;
+}
+
+@media (min-width: 768px) {
+  #pricing-overlay .pricing-modal #pricing-carousel.pricing-carousel > .pricing-card {
+    flex: 0 0 300px !important;
+  }
+
 }
