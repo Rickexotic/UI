@@ -375,32 +375,35 @@
     });
   }
 
-  window.addEventListener("load", () => {
-    const pricingOverlay = document.getElementById("pricing-overlay");
-    const carousel = document.getElementById("pricing-carousel");
-    const businessCard = carousel?.children?.[1];
+window.addEventListener("load", () => {
+  const pricingOverlay = document.getElementById("pricing-overlay");
+  const carousel = document.getElementById("pricing-carousel");
+  const businessCard = carousel?.children?.[1];
 
   setTimeout(() => {
-  if (pricingOverlay) {
-    pricingOverlay.style.display = "flex";
-    requestAnimationFrame(() => {
-      pricingOverlay.classList.add("show");
-    });
-  }
+    if (pricingOverlay) {
+      pricingOverlay.style.display = "flex";
+      requestAnimationFrame(() => {
+        pricingOverlay.classList.add("show");
+      });
+    }
 
-  if (businessCard) {
-    businessCard.scrollIntoView({
-      behavior: "smooth",
-      inline: "center"
-    });
-  }
-}, 2000);
-   
-  });
+    if (businessCard) {
+      businessCard.scrollIntoView({
+        behavior: "smooth",
+        inline: "center"
+      });
+    }
+  }, 2000);
+});
 
-  function closePricing() {
-    document.getElementById('pricing-overlay').style.display = 'none';
+function closePricing() {
+  const overlay = document.getElementById("pricing-overlay");
+  if (overlay) {
+    overlay.classList.remove("show");
+    overlay.style.display = "none";
   }
+}
 
   const carousel = document.getElementById("pricing-carousel");
   const dots = document.querySelectorAll(".dot");
