@@ -41,6 +41,7 @@ body.light-mode {
 
   --color-accent: #2563eb;
   --color-icon: #2563eb;
+  --color-icon-muted: #666f80;
 }
 
 * {
@@ -345,7 +346,7 @@ body {
 
 .plan-price {
   margin-top: 10px;
-  color: #fff;
+  color: var(--color-title);
   font-size: 44px;
   font-weight: 700;
   line-height: 1;
