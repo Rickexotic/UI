@@ -361,7 +361,6 @@ body {
     transition: none !important;
     transform: none !important;
   }
-}
 
 /* Card content */
 .plan-name {
@@ -430,6 +429,7 @@ body {
 .dot.active {
   background: var(--color-accent);
   transform: scale(1.15);
+}
 }
 
 /* Bottom nav */
