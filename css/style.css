@@ -355,14 +355,16 @@ body {
   transform: translateY(0) scale(1);
 }
 
+/* Motion accessibility: keep ONLY motion overrides in here */
 @media (prefers-reduced-motion: reduce) {
   #pricing-overlay,
   .pricing-modal {
     transition: none !important;
     transform: none !important;
   }
+}
 
-/* Card content */
+/* Card content (must be OUTSIDE media query) */
 .plan-name {
   display: block;
   color: var(--color-title);
@@ -409,7 +411,7 @@ body {
   background: linear-gradient(135deg, #2563eb, #4f8cff);
 }
 
-/* Dots */
+/* Dots (must be OUTSIDE media query) */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -429,7 +431,6 @@ body {
 .dot.active {
   background: var(--color-accent);
   transform: scale(1.15);
-}
 }
 
 /* Bottom nav */
