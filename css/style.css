@@ -299,6 +299,9 @@ body {
   display: none;              /* WebKit */
 }
 
+#pricing-carousel.pricing-carousel { 
+  scroll-behavior: smooth; scroll-padding-inline: 10%; touch-action: pan-x; }
+
 /* One card per slide */
 #pricing-carousel.pricing-carousel > .pricing-card {
   position: relative;
