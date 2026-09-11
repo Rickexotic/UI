@@ -361,6 +361,7 @@ body {
     transition: none !important;
     transform: none !important;
   }
+}
 
 /* Card content */
 .plan-name {
@@ -468,6 +469,7 @@ body {
   transition: 0.2s;
 }
 
+  
 .nav-label {
   font-size: 10px;
   color: var(--color-icon-muted);
