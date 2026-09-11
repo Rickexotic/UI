@@ -345,15 +345,22 @@
     const dots = document.querySelectorAll(".dot");
     if (!carousel || !dots.length) return;
 
-    carousel.addEventListener("scroll", () => {
-      const firstCard = carousel.querySelector(".pricing-card");
-      if (!firstCard) return;
-      const step = firstCard.getBoundingClientRect().width + parseFloat(getComputedStyle(carousel).columnGap || getComputedStyle(carousel).gap || 0);
-      const current = Math.max(0, Math.min(dots.length - 1, Math.round((carousel.scrollLeft + gap * 0.5) / (step || 1))));
-      dots.forEach((d) => d.classList.remove("active"));
-      if (dots[current]) dots[current].classList.add("active");
-    }, { passive: true });
-  }
+  carousel.addEventListener("scroll", () => {
+  const firstCard = carousel.querySelector(".pricing-card");
+  if (!firstCard) return;
+
+  const styles = getComputedStyle(carousel);
+  const gap = parseFloat(styles.gap || styles.columnGap || "0");
+  const step = firstCard.getBoundingClientRect().width + gap;
+
+  const current = Math.max(
+    0,
+    Math.min(dots.length - 1, Math.round((carousel.scrollLeft + gap * 0.5) / (step || 1)))
+  );
+
+  dots.forEach((d) => d.classList.remove("active"));
+  if (dots[current]) dots[current].classList.add("active");
+}, { passive: true });
 
   document.addEventListener("DOMContentLoaded", () => {
     applyPricingLayout();
