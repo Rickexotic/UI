@@ -24,9 +24,9 @@
   --shadow-icon: 0 0 8px rgba(96, 165, 250, 0.18);
 
   /* LAYOUT */
-  --card-height: 140px;
+  --card-height: 118px;
   --card-gap: 16px;
-  --icon-size: 30px;
+  --icon-size: 24px;
 }
 
 body.light-mode {
@@ -101,12 +101,12 @@ body {
   position: relative;
   overflow: hidden;
   min-height: var(--card-height);
-  padding: 14px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: var(--color-panel);
   border: 2px solid var(--color-panel-border);
   border-radius: 18px;
@@ -121,8 +121,8 @@ body {
 }
 
 .icon-wrapper {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border-radius: 14px;
   display: flex;
   justify-content: center;
