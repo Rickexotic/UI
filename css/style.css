@@ -321,6 +321,12 @@ body {
 .pricing-card.featured {
   background: linear-gradient(135deg, rgba(79, 140, 255, 0.18), rgba(124, 58, 237, 0.18));
   border: 1px solid rgba(138, 180, 255, 0.2);
+
+  /* blue glow like icons */
+  box-shadow:
+    0 0 0 1px rgba(96, 165, 250, 0.20) inset,
+    0 0 16px rgba(96, 165, 250, 0.22),
+    0 0 34px rgba(96, 165, 250, 0.16);
 }
 
 /* Card content */
