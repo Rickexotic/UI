@@ -313,11 +313,10 @@
     }
 
     cards.forEach((card) => {
-     if (isMobile) {
-  card.style.flex = "0 0 80%";
-  card.style.minWidth = "80%";
-  card.style.maxWidth = "80%";
-
+      if (isMobile) {
+        card.style.flex = "0 0 80%";
+        card.style.minWidth = "80%";
+        card.style.maxWidth = "80%";
       } else {
         card.style.flex = "0 0 300px";
         card.style.minWidth = "300px";
@@ -332,7 +331,8 @@
   function centerBusinessCard() {
     const carousel = document.getElementById("pricing-carousel");
     if (!carousel) return;
-    const businessCard = carousel.querySelector(".pricing-card.featured") || carousel.children[1];
+    const businessCard =
+      carousel.querySelector(".pricing-card.featured") || carousel.children[1];
     if (!businessCard) return;
 
     const left =
@@ -345,22 +345,30 @@
     const dots = document.querySelectorAll(".dot");
     if (!carousel || !dots.length) return;
 
-  carousel.addEventListener("scroll", () => {
-  const firstCard = carousel.querySelector(".pricing-card");
-  if (!firstCard) return;
+    carousel.addEventListener(
+      "scroll",
+      () => {
+        const firstCard = carousel.querySelector(".pricing-card");
+        if (!firstCard) return;
 
-  const styles = getComputedStyle(carousel);
-  const gap = parseFloat(styles.gap || styles.columnGap || "0");
-  const step = firstCard.getBoundingClientRect().width + gap;
+        const styles = getComputedStyle(carousel);
+        const gap = parseFloat(styles.gap || styles.columnGap || "0");
+        const step = firstCard.getBoundingClientRect().width + gap;
 
-  const current = Math.max(
-    0,
-    Math.min(dots.length - 1, Math.round((carousel.scrollLeft + gap * 0.5) / (step || 1)))
-  );
+        const current = Math.max(
+          0,
+          Math.min(
+            dots.length - 1,
+            Math.round((carousel.scrollLeft + gap * 0.5) / (step || 1))
+          )
+        );
 
-  dots.forEach((d) => d.classList.remove("active"));
-  if (dots[current]) dots[current].classList.add("active");
-}, { passive: true });
+        dots.forEach((d) => d.classList.remove("active"));
+        if (dots[current]) dots[current].classList.add("active");
+      },
+      { passive: true }
+    );
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     applyPricingLayout();
@@ -378,8 +386,8 @@
   });
 
   window.addEventListener("resize", applyPricingLayout);
-</script>   
-
+</script>
+ 
 </body>
 
 </html>
