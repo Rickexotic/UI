@@ -349,7 +349,7 @@
       const firstCard = carousel.querySelector(".pricing-card");
       if (!firstCard) return;
       const step = firstCard.getBoundingClientRect().width + parseFloat(getComputedStyle(carousel).columnGap || getComputedStyle(carousel).gap || 0);
-      const current = Math.round(carousel.scrollLeft / (step || 1));
+      const current = Math.max(0, Math.min(dots.length - 1, Math.round((carousel.scrollLeft + gap * 0.5) / (step || 1))));
       dots.forEach((d) => d.classList.remove("active"));
       if (dots[current]) dots[current].classList.add("active");
     }, { passive: true });
